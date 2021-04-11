@@ -1,4 +1,3 @@
-
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
@@ -29,6 +28,10 @@ Plug 'ryanoasis/vim-devicons'
 
 "javaScript snippets
 Plug 'grvcoelho/vim-javascript-snippets'
+
+"dracula
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 
 call plug#end()
 let mapleader = ","
@@ -73,7 +76,11 @@ augroup vimrc-remember-cursor-position
 augroup END
 
 " theme config 
-colorscheme palenight
+"colorscheme palenight
+packadd! dracula
+syntax enable
+colorscheme dracula
+
 
 " file manager config
 nnoremap <leader>n :NERDTreeFocus<CR>
@@ -266,4 +273,6 @@ command! -nargs=0 Prettier :CocCommand prettier.formatFile
 set linebreak
 set breakindent
 set showbreak=└\ 
+
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-pairs', 'coc-tabnine' , 'coc-prettier', 'coc-emmet', 'coc-eslint', 'coc-tsserver', 'coc-highlight', 'coc-tslint']
 
